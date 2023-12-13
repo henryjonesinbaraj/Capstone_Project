@@ -1,0 +1,288 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Price Prediction</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+            margin: 0;
+            flex-direction: column; 
+        }
+
+        form {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #fff;">Travel Price Prediction</h1>
+    <div class="prediction-section">
+        <h2 style="text-align: center;">Enter the details to predict the food price</h2>
+        <form action="/predict" method="POST">
+            <label for="city">City</label>
+                <select name="city" required>
+                <option value="select_one_option">Select one option</option>
+                <option value="Agra">Agra</option>
+                <option value="Ahmadabad">Ahmadabad</option>
+                <option value="Aizawl">Aizawl</option>
+                <option value="Ajmer">Ajmer</option>
+                <option value="Aligarh">Aligarh</option>
+                <option value="Amravati">Amravati</option>
+                <option value="Amritsar">Amritsar</option>
+                <option value="Andaman Islands">Andaman Islands</option>
+                <option value="Araria">Araria</option>
+                <option value="Baleshwar">Baleshwar</option>
+                <option value="Bangalore Urban">Bangalore Urban</option>
+                <option value="Banka">Banka</option>
+                <option value="Bareilly">Bareilly</option>
+                <option value="Bastar">Bastar</option>
+                <option value="Bathinda">Bathinda</option>
+                <option value="Belgaum">Belgaum</option>
+                <option value="Bharatpur">Bharatpur</option>
+                <option value="Bhopal">Bhopal</option>
+                <option value="Bid">Bid</option>
+                <option value="Bijapur">Bijapur</option>
+                <option value="Bikaner">Bikaner</option>
+                <option value="Bilaspur">Bilaspur</option>
+                <option value="Birbhum">Birbhum</option>
+                <option value="Bokaro">Bokaro</option>
+                <option value="Bolangir">Bolangir</option>
+                <option value="Chamba">Chamba</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Chittoor">Chittoor</option>
+                <option value="Coimbatore">Coimbatore</option>
+                <option value="Cuddalore">Cuddalore</option>
+                <option value="Cuttack">Cuttack</option>
+                <option value="Dakshin Kannad">Dakshin Kannad</option>
+                <option value="Dantewada">Dantewada</option>
+                <option value="Darbhanga">Darbhanga</option>
+                <option value="Darjiling">Darjiling</option>
+                <option value="Davanagere">Davanagere</option>
+                <option value="Dehra Dun">Dehra Dun</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Dhanbad">Dhanbad</option>
+                <option value="Dharmapuri">Dharmapuri</option>
+                <option value="Dharwad">Dharwad</option>
+                <option value="Dimapur">Dimapur</option>
+                <option value="Dindigul">Dindigul</option>
+                <option value="Durg">Durg</option>
+                <option value="East">East</option>
+                <option value="East Khasi Hills">East Khasi Hills</option>
+                <option value="Ernakulam">Ernakulam</option>
+                <option value="Faizabad">Faizabad</option>
+                <option value="Ganjam">Ganjam</option>
+                <option value="Gaya">Gaya</option>
+                <option value="Gorakhpur">Gorakhpur</option>
+                <option value="Gulbarga">Gulbarga</option>
+                <option value="Gumla">Gumla</option>
+                <option value="Gurgaon">Gurgaon</option>
+                <option value="Gwalior">Gwalior</option>
+                <option value="Haridwar">Haridwar</option>
+                <option value="Hisar">Hisar</option>
+                <option value="Hoshangabad">Hoshangabad</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Indore">Indore</option>
+                <option value="Jabalpur">Jabalpur</option>
+                <option value="Jaintia Hills">Jaintia Hills</option>
+                <option value="Jhabua">Jhabua</option>
+                <option value="Jhansi">Jhansi</option>
+                <option value="Jodhpur">Jodhpur</option>
+                <option value="Kachchh">Kachchh</option>
+                <option value="Kamrup">Kamrup</option>
+                <option value="Kangra">Kangra</option>
+                <option value="Kanpur">Kanpur</option>
+                </select>
+            <label for="category">Category:</label>
+                <select name="category" required>
+                <option value="select one option">Select one option</option>
+                <option value="cereals and tubers">cereals and Tubers</option>
+                <option value="milk and dairy">milk and Dairy</option>
+                <option value="miscellaneous food">miscellaneous Food</option>
+                <option value="oil and fats">oil and Fats</option>
+                <option value="pulses and nuts">pulses and Nuts</option>
+                <option value="vegetables and fruits">vegetables and Fruits</option>
+                </select>
+            <label for="unit">Unit:</label>
+            <select name="unit" required>
+                <option value="select one option">Select one option</option>
+                <option value="L">L</option>
+                <option value="KG">KG</option>
+            </select>
+            <button type="submit">Predict</button>            
+        </form>
+    </div>
+    
+    <div class="prediction-section">
+        <h2 style="text-align: center;">Hotel Price Prediction</h2>
+        <form action="/predicthotel" method="POST">   
+            <label for="rating">Rating:</label>
+            <input type="number" name="rating" required step="0.1" required min="1" max="5">
+
+            <label for="rating_description">Rating Description:</label>
+                <select name="rating_description" required>
+                <option value="select_one_option">Select one option</option>
+                <option value="Very Good">Very Good</option>
+                <option value="Good">Good</option>
+                </select>
+
+            <label for="reviews">Reviews:</label>
+            <input type="number" name="reviews" required min="1" max="3000">
+
+            <label for="star_rating">Star Rating:</label>
+            <input type="number" name="star_rating" required min="1" max="5">
+
+            <label for="location">Location:</label>
+                <select name="location" required>
+                <option value="select_one_option">Select one option</option>
+                <option value="Bannerghatta Main road">Bannerghatta Main road</option>
+                <option value="Bilekahalli">Bilekahalli</option>
+                <option value="Brookefield">Brookefield</option>
+                <option value="Church Street">Church Street</option>
+                <option value="Cunningham Road">Cunningham Road</option>
+                <option value="Domlur Layout">Domlur Layout</option>
+                <option value="Electronic City">Electronic City</option>
+                <option value="Gandhi Nagar">Gandhi Nagar</option>
+                <option value="Ganganagar">Ganganagar</option>
+                <option value="HAL old airport road">HAL old airport road</option>
+                <option value="HSR Layout">HSR Layout</option>
+                <option value="Hebbal">Hebbal</option>
+                <option value="Hosur road">Hosur road</option>
+                <option value="In Devanhalli">In Devanhalli</option>
+                <option value="Indiranagar">Indiranagar</option>
+                <option value="Infantry Road">Infantry Road</option>
+                <option value="Koramangala">Koramangala</option>
+                <option value="Majestic">Majestic</option>
+                <option value="Marathahalli">Marathahalli</option>
+                <option value="Mathikere">Mathikere</option>
+                <option value="Near Bangalore Airport">Near Bangalore Airport</option>
+                <option value="Outer Ring Road">Outer Ring Road</option>
+                <option value="Palace road">Palace road</option>
+                <option value="Rajajinagar">Rajajinagar</option>
+                <option value="Residency Road">Residency Road</option>
+                <option value="Richmond road">Richmond road</option>
+                <option value="Sampangi Rama Nagar">Sampangi Rama Nagar</option>
+                <option value="Seshadripuram">Seshadripuram</option>
+                <option value="Shivaji Nagar">Shivaji Nagar</option>
+                <option value="Sivanchetti Gardens">Sivanchetti Gardens</option>
+                <option value="Tirumanahalli">Tirumanahalli</option>
+                <option value="Tumkur road">Tumkur road</option>
+                <option value="Ulsoor">Ulsoor</option>
+                <option value="Vasanth Nagar">Vasanth Nagar</option>
+                <option value="Whitefield">Whitefield</option>
+                <option value="Yeshwanthpur">Yeshwanthpur</option>
+                </select>
+
+            <label for="nearest_landmark">Nearest Landmark:</label>
+                <select name="nearest_landmark" required>
+                <option value="select_one_option">Select one option</option>
+                <option value="Bangalore city centre">Bangalore city centre</option>
+                <option value="Cubbon Park">Cubbon Park</option>
+                <option value="Indira Gandhi Musical Fountain Park">Indira Gandhi Musical Fountain Park</option>
+                <option value="Kempegowda Airport">Kempegowda Airport</option>
+                <option value="MG Road">MG Road</option>
+                <option value="Palace Grounds">Palace Grounds</option>
+                <option value="Ulsoor Lake">Ulsoor Lake</option>
+                </select>
+
+            <label for="distance_to_landmark">Distance to Landmark:</label>
+            <input type="number" name="distance_to_landmark" required min="1" max="100000">   
+
+            <label for="tax">Tax:</label>
+            <input type="number" name="tax" required min="100" max="3000"> 
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+
+    <div class="prediction-section">
+        <h2 style="text-align: center;">Flight Price Prediction</h2>
+        <form action="/predictflightprice" method="POST">   
+            <label for="airline">Airline:</label>
+                <select name="airline" required>
+                <option value="select_one_option">Select one option</option>
+                <option value="Air_India">Air India</option>
+                <option value="GO_FIRST">GO_FIRST</option>
+                <option value="Indigo">Indigo</option>
+                <option value="SpiceJet">SpiceJet</option>
+                <option value="Vistara">Vistara</option>
+                </select>
+    
+            <label for="source_city">Source City:</label>
+                <select name="source_city">
+                <option value="select_one_option">Select one option</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Chennai">Chennai</option>
+                </select>
+    
+            <label for="departure_time">Departure Time:</label>
+                <select name="departure_time">
+                <option value="select_one_option">Select one option</option>
+                <option value="Evening">Evening</option>
+                <option value="Early_Morning">Early Morning</option>
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Late_Night">Late Night</option>
+                </select>
+    
+            <label for="stops">Stops:</label>
+                <select name="stops">
+                <option value="select_one_option">Select one option</option>
+                <option value="zero">Zero Stops</option>
+                <option value="two_or_more">Two or More Stops</option>
+                </select>
+    
+            <label for="arrival_time">Arrival Time:</label>
+                <select name="arrival_time">
+                <option value="select_one_option">Select one option</option>
+                <option value="Night">Night</option>
+                <option value="Morning">Morning</option>
+                <option value="Early_Morning">Early Morning</option>
+                <option value="Evening">Evening</option>
+                <option value="Late_Night">Late Night</option>
+                </select>
+    
+            <label for="destination_city">Destination City:</label>
+                <select name="destination_city">
+                <option value="select_one_option">Select one option</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Delhi">Delhi</option>
+                </select>
+    
+            <label for="class">Class:</label>
+                <select name="class">
+                <option value="select_one_option">Select one option</option>
+                <option value="Economy">Economy</option>
+                </select>
+    
+            <label for="duration">Duration:</label>
+            <input type="number" name="duration" required step="0.1" min="1" max="50">
+                
+            <label for="days_left">Days Left:</label>
+            <input type="number" name="days_left" required min="1" max="365">
+    
+            <button type="submit">Predict</button>
+        </form>
+    </div>    
+
+</body>
+</html>
+
+
+
+
+
+
+
